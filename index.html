@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIDR Subnet Explorer</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+
+<style>
+  body {
+    background-color: #121212;
+    color: #ffffff;
+  }
+  .form-control, .btn {
+    background-color: #333;
+    color: #fff;
+    border: none;
+  }
+  .subnet {
+    border: 1px solid #555;
+    padding: 5px;
+    margin: 5px 0;
+  }
+  
+.slider-ticks {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-top: -10px;
+  margin-left: 10px; /* Adjust to align with the start of the slider */
+  margin-right: 10px; /* Adjust to align with the end of the slider */
+}
+
+.slider-ticks span {
+  position: absolute;
+  font-size: 10px;
+  color: #aaa;
+  width: 20px;
+  margin-left: -10px; /* Center the tick mark */
+  text-align: center;
+}
+
+</style>
+
+
+<body>
+    <div class="container mt-5">
+	<h1>CIDR Subnet Explorer</h1>
+        <div class="form-group">
+            <label for="subnet">Subnet (IPv4 Address):</label>
+            <input type="text" class="form-control" id="subnet" placeholder="Enter subnet" value="192.168.0.0">
+
+        </div>
+		<div class="form-group">
+		  <label for="cidr">Mask Bits:</label>		  <span id="cidrValue">24</span>
+		  <input type="range" class="custom-range" id="cidr" min="0" max="32" step="1" value="24">
+		  <div class="slider-ticks">
+			<span>0</span>
+			<span style="left: 25%;">8</span>
+			<span style="left: 50%;">16</span>
+			<span style="left: 75%;">24</span>
+			<span style="left: 100%;">32</span>
+		  </div>
+		  <br>
+		  <br>
+
+		</div>
+        <button class="btn btn-primary" onclick="drawSubnet()">Calculate</button>
+        <div id="subnet-visualization" class="mt-4"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
