@@ -33,7 +33,7 @@ function drawSubnet() {
   }
   let toAddress = toAddressParts.join('.');
 
-  let output = `<div class="subnet">CIDR: ${cidrInput}</div>`;
+  let output = `<div class="subnet">Mask Bits: ${cidrInput}</div>`;
   output += `<div class="subnet">Subnet Range: FROM ${fromAddress} TO ${toAddress}</div>`;
   output += `<div class="subnet">IP Addresses Available: ${subnetSize - 2}</div>`; // Subtracting 2 for the network and broadcast addresses
 
